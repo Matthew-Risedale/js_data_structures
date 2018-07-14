@@ -1,15 +1,15 @@
 export default class Stack {
   constructor(capacity) {
-    this.capacity = capacity || 40,
-    this._storage = {},
-    this._size = 0
+    this._capacity = capacity || 40;
+    this._storage = {};
+    this._size = 0;
   }
 
   push(data) {
     if(!data) {
        return 'please push some data';
     }
-    else if(this._size < this.capacity) {
+    else if(this._size < this._capacity) {
       this._storage[this._size++] = data;
       return this._size;
     }
@@ -26,7 +26,7 @@ export default class Stack {
   }
   
   peek() {
-    return this._storage[this._size - 1];
+    return this._size ? this._storage[this._size - 1] : 'stack is empty';
   }
   
   clear() {
